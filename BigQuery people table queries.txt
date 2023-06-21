@@ -1,0 +1,13 @@
+SELECT * FROM `bigquerydataflow-20-06-23.people.peopletbl` LIMIT 10
+
+DESCRIBE TABLE `bigquerydataflow-20-06-23.people.peopletbl`
+
+SELECT name, `date_of_birth` FROM `bigquerydataflow-20-06-23.people.peopletbl` WHERE sex="male" ORDER BY `date_of_birth` LIMIT 100
+
+ALTER TABLE `bigquerydataflow-20-06-23.people.peopletbl` RENAME COLUMN date_of_birth TO birth;
+
+SELECT name, `birth` FROM `bigquerydataflow-20-06-23.people.peopletbl` WHERE `birth` BETWEEN "1903/01/01" AND "1911/12/31" ORDER BY `birth` LIMIT 100
+
+SELECT sex,COUNT(sex) FROM `bigquerydataflow-20-06-23.people.peopletbl` WHERE birth BETWEEN "1903/01/01" AND "1911/12/31" GROUP BY sex
+
+SELECT sex,COUNT(sex) FROM `bigquerydataflow-20-06-23.people.peopletbl` GROUP BY sex
